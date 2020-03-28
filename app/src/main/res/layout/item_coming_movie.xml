@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="@dimen/dp_5"
+    android:layout_width="@dimen/dp_312"
+    android:layout_height="@dimen/dp_118">
+
+
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_312"
+        android:layout_height="@dimen/dp_98"
+        android:layout_marginTop="@dimen/dp_20"
+        android:background="#1c2243"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_118"
+            android:layout_marginTop="@dimen/dp_14"
+            android:text="离天空那么近"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/sp_14"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_release_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_118"
+            android:layout_marginTop="@dimen/dp_11"
+            android:text="上映时间"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/sp_12" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_118"
+            android:layout_marginTop="@dimen/dp_10">
+            <TextView
+                android:id="@+id/tv_want_see"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="xxx人想看"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/sp_12" />
+            <TextView
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/dp_10"
+                android:layout_width="@dimen/dp_45"
+                android:layout_height="@dimen/dp_20"
+                android:background="@drawable/log_shape"
+                android:gravity="center"
+                android:text="购票"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/sp_12" />
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/iv_image_url"
+        android:layout_width="@dimen/dp_88"
+        android:layout_height="@dimen/dp_108"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_10" />
+</RelativeLayout>

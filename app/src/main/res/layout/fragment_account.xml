@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_32"
+        android:layout_marginTop="@dimen/dp_20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_centerVertical="true"
+            android:text="我的"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/sp_16" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_22"
+            android:layout_height="@dimen/dp_17"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_25"
+            android:src="@drawable/account_info" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp_312"
+        android:layout_height="@dimen/dp_90"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_31"
+        android:background="#ffffff">
+
+        <ImageView
+            android:id="@+id/iv_image_account"
+            android:layout_width="@dimen/dp_46"
+            android:layout_height="@dimen/dp_46"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_toRightOf="@id/iv_image_account"
+            android:text="电影故事"
+            android:textSize="@dimen/sp_16"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/to_login"
+            android:layout_width="@dimen/dp_8"
+            android:layout_height="@dimen/dp_12"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_20"
+            android:src="@drawable/back_right" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="@dimen/dp_312"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="#1c2243">
+
+        <ImageView
+            android:id="@+id/iv_image_movie"
+            android:layout_width="@dimen/dp_20"
+            android:layout_height="@dimen/dp_20"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_12"
+            android:src="@drawable/cinama_ticket" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp_20"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_toRightOf="@id/iv_image_movie"
+            android:text="电影票"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/sp_14" />
+
+        <ImageView
+            android:layout_width="@dimen/dp_7"
+            android:layout_height="@dimen/dp_12"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_20"
+            android:src="@drawable/back_right" />
+
+
+        <ImageView
+            android:layout_width="@dimen/dp_24"
+            android:layout_height="@dimen/dp_24"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/dp_25"
+            android:src="@drawable/back_rigth_white" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="@dimen/dp_312"
+        android:layout_height="@dimen/dp_235"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/dp_11"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_20"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginLeft="@dimen/dp_18"
+                android:button="@null"
+                android:drawableTop="@drawable/account_my_follow"
+                android:gravity="center"
+                android:text="我的关注"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/sp_12" />
+
+            <RadioButton
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginLeft="@dimen/dp_66"
+                android:button="@null"
+                android:drawableTop="@drawable/account_my_appointment"
+                android:gravity="center"
+                android:text="我的预约"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/sp_12" />
+
+            <RadioButton
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginLeft="@dimen/dp_66"
+                android:button="@null"
+                android:drawableTop="@mipmap/goupiaojilu"
+                android:gravity="center"
+                android:text="购票记录"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/sp_12" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginLeft="@dimen/dp_18"
+                android:button="@null"
+                android:drawableTop="@drawable/account_my_seen"
+                android:gravity="center"
+                android:text="看过的电影"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/sp_12" />
+
+            <RadioButton
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginLeft="@dimen/dp_60"
+                android:button="@null"
+                android:drawableTop="@drawable/account_my_comment"
+                android:gravity="center"
+                android:text="我的评论"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/sp_12" />
+
+            <RadioButton
+                android:layout_width="@dimen/dp_48"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginLeft="@dimen/dp_66"
+                android:button="@null"
+                android:drawableTop="@drawable/account_my_feedback"
+                android:gravity="center"
+                android:text="意见反馈"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/sp_12" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_30"
+            android:orientation="horizontal">
+
+
+            <RadioButton
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_46"
+                android:layout_marginLeft="@dimen/dp_18"
+                android:button="@null"
+                android:drawableTop="@drawable/account_my_setting"
+                android:gravity="center"
+                android:text="设置"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/sp_12" />
+
+        </RadioGroup>
+
+
+    </LinearLayout>
+
+</LinearLayout>

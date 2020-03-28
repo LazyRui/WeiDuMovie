@@ -1,0 +1,2 @@
+rootProject.name='WeiDuMovie'
+include ':app'
