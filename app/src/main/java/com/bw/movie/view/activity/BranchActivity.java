@@ -1,19 +1,21 @@
 package com.bw.movie.view.activity;
 
 import android.os.Bundle;
-import android.renderscript.Byte3;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bw.movie.R;
+import com.bw.movie.SpacesItemDecoration;
 import com.bw.movie.adapter.dianying_adapter.BranchMovieAdapter;
 import com.bw.movie.api.service.ApiService;
 import com.bw.movie.base.BaseActivity;
@@ -36,6 +38,8 @@ public class BranchActivity extends BaseActivity {
     EditText etBranch;
     @BindView(R.id.rv_branch)
     RecyclerView rvBranch;
+    @BindView(R.id.lll)
+    LinearLayout lll;
 
     @Override
     protected void initData() {
@@ -46,6 +50,8 @@ public class BranchActivity extends BaseActivity {
     protected void initView() {
 
         rvBranch.setLayoutManager(new LinearLayoutManager(this));
+
+        rvBranch.addItemDecoration(new SpacesItemDecoration(20));
         ivBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,32 +76,12 @@ public class BranchActivity extends BaseActivity {
 
                 if (TextUtils.isEmpty(bran)) {
 
+                    return;
+
                 } else {
 
-                    RretrofitUtils.getInstance().createService(ApiService.class)
-                            .getBranchData(bran, 1, 5)
-                            .subscribeOn(Schedulers.io())
-                            .observeOn(AndroidSchedulers.mainThread())
-                            .subscribe(new Consumer<BranchMovieEntity>() {
-                                @Override
-                                public void accept(BranchMovieEntity branchMovieEntity) throws Exception {
-                                    if (branchMovieEntity != null) {
+                    branchData(bran);
 
-                                        if (branchMovieEntity.getResult().size() > 0) {
-
-                                            BranchMovieAdapter branchMovieAdapter = new BranchMovieAdapter(BranchActivity.this, branchMovieEntity.getResult());
-                                            rvBranch.setAdapter(branchMovieAdapter);
-                                        }else {
-                                            Toast.makeText(BranchActivity.this, "暂无此电影……", Toast.LENGTH_SHORT).show();
-                                        }
-                                    }
-                                }
-                            }, new Consumer<Throwable>() {
-                                @Override
-                                public void accept(Throwable throwable) throws Exception {
-
-                                }
-                            });
                 }
 
             }
@@ -110,6 +96,39 @@ public class BranchActivity extends BaseActivity {
     @Override
     protected int layoutId() {
         return R.layout.activity_branch;
+    }
+
+
+    public void branchData(String keyword) {
+        RretrofitUtils.getInstance().createService(ApiService.class)
+                .getBranchData(keyword, 1, 5)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<BranchMovieEntity>() {
+                    @Override
+                    public void accept(BranchMovieEntity branchMovieEntity) throws Exception {
+                        if (branchMovieEntity != null) {
+                            Log.e("xxx", "" + branchMovieEntity.getMessage());
+
+                            if (branchMovieEntity.getMessage().equals("未查到相关电影")) {
+                                //Toast.makeText(BranchActivity.this, "进口岸海搜房过海", Toast.LENGTH_SHORT).show();
+                                rvBranch.setVisibility(View.GONE);
+                                lll.setVisibility(View.VISIBLE);
+                            } else if (branchMovieEntity.getResult().size() > 0) {
+                                rvBranch.setVisibility(View.VISIBLE);
+                                lll.setVisibility(View.GONE);
+                                BranchMovieAdapter branchMovieAdapter = new BranchMovieAdapter(BranchActivity.this, branchMovieEntity.getResult());
+                                rvBranch.setAdapter(branchMovieAdapter);
+                            }
+
+                        }
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+
+                    }
+                });
     }
 
 
