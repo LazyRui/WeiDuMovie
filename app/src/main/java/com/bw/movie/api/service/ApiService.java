@@ -2,6 +2,7 @@ package com.bw.movie.api.service;
 
 import com.bw.movie.api.Api;
 import com.bw.movie.entity.movie.BananerEntity;
+import com.bw.movie.entity.movie.BranchMovieEntity;
 import com.bw.movie.entity.movie.ComingSoonMovieEntity;
 import com.bw.movie.entity.movie.HotMovie;
 import com.bw.movie.entity.movie.ReleaseMovieEntity;
@@ -28,8 +29,12 @@ public interface ApiService {
 
     @GET(Api.BASE_JJSHOW)
     Observable<ComingSoonMovieEntity> getComingSoonMovieData(@Query("page") int page, @Query("count") int count);
-  @GET(Api.BASE_HOTSHOW)
+
+    @GET(Api.BASE_HOTSHOW)
     Observable<HotMovie> getHotMovieData(@Query("page") int page, @Query("count") int count);
+
+    @GET(Api.BASE_SOUSUO)
+    Observable<BranchMovieEntity> getBranchData(@Query("keyword") String keyword, @Query("page") int page, @Query("count") int count);
 
 
 }

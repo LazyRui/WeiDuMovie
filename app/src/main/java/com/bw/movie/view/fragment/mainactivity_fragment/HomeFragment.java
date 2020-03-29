@@ -1,6 +1,7 @@
 package com.bw.movie.view.fragment.mainactivity_fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +24,7 @@ import com.bw.movie.entity.movie.ComingSoonMovieEntity;
 import com.bw.movie.entity.movie.HotMovie;
 import com.bw.movie.entity.movie.ReleaseMovieEntity;
 import com.bw.movie.utils.RretrofitUtils;
+import com.bw.movie.view.activity.BranchActivity;
 import com.stx.xhb.androidx.XBanner;
 
 import butterknife.BindView;
@@ -57,6 +59,8 @@ public class HomeFragment extends BaseFragment {
     TextView tvName;
     @BindView(R.id.tv_score)
     TextView tvScore;
+    @BindView(R.id.iv_branch)
+    ImageView ivBranch;
 
     @Override
     protected int layoutId() {
@@ -93,6 +97,12 @@ public class HomeFragment extends BaseFragment {
         rvReleaseMovie.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
         rvComingSoonMovie.setLayoutManager(new LinearLayoutManager(getContext()));
 
+        ivBranch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), BranchActivity.class));
+            }
+        });
 
     }
 
@@ -207,19 +217,14 @@ public class HomeFragment extends BaseFragment {
                         if (hotMovie != null) {
 
 
-
                             Glide.with(getContext()).load(hotMovie.getResult().get(0).getImageUrl())
                                     .apply(new RequestOptions().optionalTransform(new RoundedCorners(8)))
                                     .into(ivImageUrl);
                             tvName.setText(hotMovie.getResult().get(0).getName());
-                            tvScore.setText(hotMovie.getResult().get(0).getScore()+"分");
+                            tvScore.setText(hotMovie.getResult().get(0).getScore() + "分");
 
 
-
-
-
-
-                            rvHotMovie.setLayoutManager(new LinearLayoutManager(getContext(),RecyclerView.HORIZONTAL,false));
+                            rvHotMovie.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.HORIZONTAL, false));
 
                             HotMovieAdapter hotMovieAdapter = new HotMovieAdapter(getContext(), hotMovie.getResult());
 

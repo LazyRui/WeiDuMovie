@@ -67,7 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_20"
-                android:text="电影"
+                android:text="影院"
                 android:textColor="#e8185e"
                 android:textSize="@dimen/sp_14"
                 android:visibility="gone" />
@@ -91,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/dp_20"
-                android:text="电影"
+                android:text="我的"
                 android:textColor="#e8185e"
                 android:textSize="@dimen/sp_14"
                 android:visibility="gone" />
