@@ -2,6 +2,7 @@ package com.bw.movie.view.fragment.mainactivity_fragment;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -77,6 +78,32 @@ public class CinemaFragment extends BaseFragment {
         });
 
         taTatatata.setupWithViewPager(vp);
+
+/*
+        taTatatata.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                int position = tab.getPosition();
+                
+                if (position==0){
+
+                    Toast.makeText(getContext(), "123", Toast.LENGTH_SHORT).show();
+                    
+                }
+                
+
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });*/
     }
 
     @Override

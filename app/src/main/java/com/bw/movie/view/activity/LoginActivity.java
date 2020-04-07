@@ -115,11 +115,11 @@ public class LoginActivity extends BaseActivity<LoginPresenter> implements Login
     @Override
     public void success(LoginEntity loginEntity) {
         if (loginEntity != null) {
-            String message = loginEntity.getMessage();
-            if (message.equals("1001")) {
-                Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+            String status = loginEntity.getStatus();
+            if (status.equals("1001")) {
+                Toast.makeText(this, loginEntity.getMessage(), Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, loginEntity.getMessage(), Toast.LENGTH_SHORT).show();
 
                 EventBus.getDefault().postSticky(loginEntity);
 

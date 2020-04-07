@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import androidx.viewpager.widget.ViewPager;
 
+import com.bw.movie.MainActivity;
 import com.bw.movie.R;
 import com.bw.movie.base.BaseActivity;
 import com.bw.movie.base.base_mvp.BasePresenter;
@@ -50,7 +51,7 @@ public class GuidePageActivity extends BaseActivity {
         imageList.add(xBannerEntity3);
 
         if (guide_page.getBoolean("guide", false)) {
-            startActivity(new Intent(GuidePageActivity.this, LoginActivity.class));
+            startActivity(new Intent(GuidePageActivity.this, MainActivity.class));
             finish();
         } else {
 
@@ -81,7 +82,7 @@ public class GuidePageActivity extends BaseActivity {
                             edit.putBoolean("guide", true);
                             edit.commit();
                         }
-                        startActivity(new Intent(GuidePageActivity.this, LoginActivity.class));
+                        startActivity(new Intent(GuidePageActivity.this, MainActivity.class));
                         finish();
                     }
                 }

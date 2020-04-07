@@ -6,9 +6,12 @@ import com.bw.movie.entity.movie.BranchMovieEntity;
 import com.bw.movie.entity.movie.ComingSoonMovieEntity;
 import com.bw.movie.entity.movie.HotMovie;
 import com.bw.movie.entity.movie.ReleaseMovieEntity;
+import com.bw.movie.entity.yingyuan.FindNearbyCinemasEntity;
+import com.bw.movie.entity.yingyuan.RecommendEntity;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
+import retrofit2.http.Header;
 import retrofit2.http.Query;
 
 /**
@@ -35,6 +38,14 @@ public interface ApiService {
 
     @GET(Api.BASE_SOUSUO)
     Observable<BranchMovieEntity> getBranchData(@Query("keyword") String keyword, @Query("page") int page, @Query("count") int count);
+
+    @GET(Api.BASE_RECOMMEND)
+    Observable<RecommendEntity> getRecommendCinemas(@Header("userId") int userId, @Header("sessionId") int sessionId, @Query("page") int page, @Query("count") int count);
+
+    @GET(Api.BASE_RECOMMEND)
+    Observable<FindNearbyCinemasEntity> getFindNearbyCinemasEntity(@Header("userId") int userId, @Header("sessionId") int sessionId,
+                                                                   @Query("longitude") String longitude, @Query("latitude") String latitude,
+                                                                   @Query("page") int page, @Query("count") int count);
 
 
 }

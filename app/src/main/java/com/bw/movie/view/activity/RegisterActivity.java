@@ -58,7 +58,6 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
             public void onClick(View view) {
                 tag = 1;
 
-
                 mPresenter.getSendOutEmailCodeData(etEmail.getText().toString());
 
             }
@@ -95,10 +94,12 @@ public class RegisterActivity extends BaseActivity<RegisterPresenter> implements
             if (tag == 1) {
                 Toast.makeText(this, loginEntity.getMessage(), Toast.LENGTH_SHORT).show();
 
-            } else if (tag == 2) {
+            }
+
+            if (tag == 2) {
 
 
-                if (loginEntity.getResult().equals("0000")) {
+                if (loginEntity.getStatus().equals("0000")) {
 
                     Toast.makeText(this, loginEntity.getMessage(), Toast.LENGTH_SHORT).show();
 
